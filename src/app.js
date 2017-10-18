@@ -1,6 +1,6 @@
 import ko from './vendor/knockout-3.4.2.js';
 
-const AppViewModel = function(interviews) {
+const AppViewModel = function(interviews, map) {
   this.interviews = ko.observableArray(interviews);
   this.selectInterview = function(interview) {
     alert(interview.url);
