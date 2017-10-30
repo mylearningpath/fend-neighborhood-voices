@@ -7,7 +7,10 @@ function initApp() {
   // Init map
   const map = new google.maps.Map(document.getElementById('map'), {
     center: { lat: -22.940841, lng: -43.2194321 },
-    zoom: 12
+    zoom: 12,
+    disableDefaultUI: true,
+    zoomControl: true,
+    streetViewControl: true
   });
 
   // Instantiate the ViewModel and apply Knockout bindings
