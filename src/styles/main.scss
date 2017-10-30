@@ -1,6 +1,10 @@
+// BASE
+@import 'base/fonts.scss';
+
 // LAYOUT
 @import 'layout/app-home.scss';
 
 // COMPONENTS
 @import 'components/search.scss';
 @import 'components/content-list';
+@import 'components/story-card.scss';

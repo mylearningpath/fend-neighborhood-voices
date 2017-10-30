@@ -3,26 +3,27 @@
 }
 
 body {
+  height: 100vh;
   margin: 0;
   padding: 0;
 }
-
-.content {
-  height: 100vh;
-  position: relative;
- }
 
  .map {
   height: 100%;
  }
 
- .search-bar {
-   position: absolute;
-   top: 15px;
-   right: 10px;
- }
-
- .content-list {
+.content {
   position: absolute;
-  top: 50px;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 400px) {
+  .content {
+    max-width: 400px; 
+  }
 }

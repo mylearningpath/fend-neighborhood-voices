@@ -8,15 +8,25 @@
   <link rel="stylesheet" href="build/main.css" />
 </head>
 <body>
+  <div id="map" class="map"></div>
   <div class="content">
-    <div id="map" class="map"></div>
     <form action="" class="search-bar">
       <input type="search">
       <button><i class="search-bar__icon"></i></button>
     </form>
     <ul class="content-list" data-bind="foreach: interviews">
-       <li data-bind="text: name, click: $parent.selectInterview" class="list-item"></li>
+       <li data-bind="click: $parent.selectInterview" class="content-list__item">
+          <h3 data-bind="text: name"></h3>
+          <p>Nome do Entrevistado - <span>2:35 min</span></p>
+       </li>
     </ul>
+    <aside class="story">
+      <iframe width="100%" height="166px" 
+              scrolling="no" 
+              frameborder="no" 
+              src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F232788106&show_artwork=true">
+      </iframe>
+    </aside>
   </div>
   <script src="build/bundle.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUjj60Wqnh5kcOjWfvbrmLlvY_yi8FaQY&callback=initApp"
