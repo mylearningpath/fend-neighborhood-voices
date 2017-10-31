@@ -16,8 +16,8 @@
     </form>
     <ul class="content-list" data-bind="foreach: interviews">
        <li data-bind="click: $parent.selectInterview" class="content-list__item">
-          <h3 data-bind="text: name"></h3>
-          <p>Nome do Entrevistado - <span>2:35 min</span></p>
+          <h3 data-bind="text: title"></h3>
+          <p data-bind="text: interviewee"></p>
        </li>
     </ul>
     <aside class="story">
