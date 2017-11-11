@@ -5,44 +5,27 @@ const AppViewModel = function (interviews, map) {
 
   var self = this;
 
-  this.markersArray = ko.observableArray();
-  this.visibleMarkersArray = ko.observableArray();
-
-  // Define observable for filter input
-  this.userInput = ko.observable('');
-
-  // Fill markersArray with data from JSON
+  this.interviewsArray = ko.observableArray();
   interviews.forEach(function (data) {
-    self.markersArray.push(new interviewObject(data, map));
+    self.interviewsArray.push(new interviewObject(data, map));
   });
 
-  // Set initial list from array
-  this.markersArray().forEach(function (data) {
-    self.visibleMarkersArray.push(data);
-  });
+  // User input to filter the list
+  this.filter = ko.observable('');
 
+  this.filteredInterviews = ko.computed(function() {
+    var filterText = self.filter().toLowerCase();
 
-  this.filter = function () {
-
-    // Sanitaze user input
-    var input = self.userInput().toLowerCase();
-
-    // Clean visibleMarkersArray
-    self.visibleMarkersArray.removeAll();
-
-    self.markersArray().forEach(function (data) {
-
-      if (data.title.toLowerCase().includes(input) === true) {
-        // Show marker
-        data.marker.setVisible(true);
-        // Add marker to visibleMarkersArray
-        self.visibleMarkersArray.push(data);
+    return self.interviewsArray().filter(function(interview) {
+      if (interview.title.toLowerCase().includes(filterText) === true) {
+        interview.marker.setVisible(true);
+        return true;
       } else {
-        // Hide marker
-        data.marker.setVisible(false);
+        interview.marker.setVisible(false);
+        return false;
       }
     });
-  };
+  });
   
 };
 
