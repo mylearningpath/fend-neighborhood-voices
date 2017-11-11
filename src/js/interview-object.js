@@ -6,6 +6,7 @@ const interviewObject = function(data, map) {
   this.url = data.url;
   this.lat = data.lat;
   this.lng = data.lng;
+  this.media = "";
 
   // Instantiate Google Maps Marker object
   this.marker = new google.maps.Marker({
@@ -14,21 +15,20 @@ const interviewObject = function(data, map) {
     animation: google.maps.Animation.DROP
   });
 
-  this.marker.addListener('click', function () { 
-    // Animate clicked marker
-    self.marker.setAnimation(google.maps.Animation.BOUNCE);
-    // Set time for animation end
-    setTimeout(function () {
-      self.marker.setAnimation(null);
-    }, 700);
+  this.marker.addListener('click', function () {
+    self.selectInterview();
   });
 
   // Click event listener on .content-list__item
   interviewObject.prototype.selectInterview = function () {
-    // TO DO
-    // LOAD SOUNDCLOUD EMBEDED TO THIS INTERVIEW
-    google.maps.event.trigger(this.marker, 'click');
+    var marker = this.marker;
+    // Animate clicked marker
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+    setTimeout(function () {
+      marker.setAnimation(null);
+    }, 700);
   };
 }
 
 export default interviewObject;
+
