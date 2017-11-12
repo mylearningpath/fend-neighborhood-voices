@@ -5,9 +5,13 @@ const AppViewModel = function (interviews, map) {
 
   var self = this;
 
+  this.currentMedia = ko.observable('');
+
   this.interviewsArray = ko.observableArray();
   interviews.forEach(function (data) {
-    self.interviewsArray.push(new interviewObject(data, map));
+    self.interviewsArray.push(new interviewObject(data, map, function(media) {
+      self.currentMedia(media);
+    }));
   });
 
   // User input to filter the list
