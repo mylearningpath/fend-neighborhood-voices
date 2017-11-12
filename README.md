@@ -2,7 +2,7 @@
 
 ## About
 
-As part Udacity's Front-end Nanodegree program, the main goal of the project is to build an interactive map that shows markers related to third party content from an API.
+As part Udacity's Front-end Nanodegree program, the goal of the project is to build an interactive map that shows markers related to third party content from an API.
 
 The map shows a list of locations on Rio de Janeiro that marke the location of some audio interviews of Polissonorum, an app I previous worked. 
 
