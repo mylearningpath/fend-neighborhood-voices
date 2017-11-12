@@ -44,7 +44,16 @@ interviewObject.prototype.selectInterview = function () {
         self.media = response.data.html.replace('visual=true&', '');
         self.onSelected(self.media);
         marker.setAnimation(null);
-      });
+      })
+      .catch(function(error) {
+        console.log(error);
+        var errorTemplate = `<div class="story--onerror">
+                              <p> Sorry. <span>:(</span></>
+                              <p>We couldn't load the media.</p>  
+                            </div>`;
+        self.onSelected(errorTemplate);
+          marker.setAnimation(null);
+      })
   } else {
     // Loads iframe from cache
     self.onSelected(self.media);
