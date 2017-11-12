@@ -10,11 +10,13 @@
 <body>
   <div id="map" class="map"></div>
   <div class="content">
-    <form action="" class="search-bar">
+    <form action="" class="filter">
       <input type="search" placeholder="Filter" data-bind="textInput: filter">
-      <button><i class="search-bar__icon"></i></button>
+      <button data-bind="click: displayContent.toggle">
+        <i class="filter__icon" data-bind="css: displayContentStatus"></i>
+      </button>
     </form>
-    <ul class="content-list" data-bind="foreach: filteredInterviews">
+    <ul class="content-list" data-bind="foreach: filteredInterviews, visible: displayContent">
        <li data-bind="click: selectInterview" class="content-list__item">
           <h3 data-bind="text: title"></h3>
           <p data-bind="text: interviewee"></p>

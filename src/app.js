@@ -30,6 +30,19 @@ const AppViewModel = function (interviews, map) {
       }
     });
   });
+
+  ko.observable.fn.toggleable = function () {
+    var self = this;
+    self.toggle = function () {
+      self(!self());
+    };
+    return self;
+  };
+
+  this.displayContent = ko.observable(true).toggleable();
+  this.displayContentStatus = ko.pureComputed(function () {
+    return self.displayContent ? 'open' : 'close';
+  }, this);
   
 };
 
