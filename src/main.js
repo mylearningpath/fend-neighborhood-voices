@@ -17,5 +17,9 @@ function initApp() {
   ko.applyBindings(new AppViewModel(interviews, map));
 }
 
+function googleAPIError() {
+  alert('Fail to connect to Google API.');
+}
+
 // Workaround to make the initApp function visible to Google Maps API
 window.initApp = initApp;
